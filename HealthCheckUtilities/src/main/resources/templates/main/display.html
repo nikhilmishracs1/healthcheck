@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+	
+<head th:replace="layouts :: header"></head>
+
+
+<body>
+
+<nav th:replace="layouts :: navbar"></nav>
+
+
+<h1>Welcome to </h1>
+
+<div>
+		<h4>Current Project</h4>
+		<table border="2">
+			<thead>
+				<th>Node Name</th>
+				<th>Status</th>
+			</thead>
+		<!--  	<tbody>
+				<tr th:forEach="aRecords : ${Records}">
+					<td th:text="${aRecords.name}">
+					<td th:text="${aRecords.status}">					
+				</tr>
+			
+			</tbody>
+		-->
+		<tbody>
+				<tr> <td th:text="${name}">
+					<td th:text="${status}">					
+				</tr>
+			
+			</tbody>
+		</table>
+	</div>
+
+
+</body>
+</html>
