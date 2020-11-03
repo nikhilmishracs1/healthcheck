@@ -26,16 +26,17 @@ public class IntegrationNodeStatusController {
 		Map<String, Boolean> hmap = new HashMap<>();
 		
 		String name = null;
-		//try {
+		try {
+		
+		  BrokerConnectionParameters bcp = new IntegrationNodeConnectionParameters(
+		  "desktop-jsi5kdn",4414);
+		  
+		  b = BrokerProxy.getInstance(bcp); name = b.getName(); Boolean status =
+		  b.isRunning();
+		 
 			/*
-			 * BrokerConnectionParameters bcp = new IntegrationNodeConnectionParameters(
-			 * "desktop-jsi5kdn",4414);
-			 * 
-			 * b = BrokerProxy.getInstance(bcp); name = b.getName(); Boolean status =
-			 * b.isRunning();
+			 * name = "Khushboo"; Boolean status = true;
 			 */
-			name = "Khushboo";
-			Boolean status = true;
 			hmap.put(name, status);
 			model.addAttribute("name", name);
 			model.addAttribute("status", status);
@@ -43,12 +44,12 @@ public class IntegrationNodeStatusController {
 			//model.addAttribute("Records", hmap);
 		   // model.addAttribute("Status", name);
 			System.out.println(hmap);
-			/*
-			 * } catch (ConfigManagerProxyException cmpex) { String stx =
-			 * "Error connecting: " + cmpex; System.out.println(stx);
-			 * 
-			 * }
-			 */
+			
+			  } catch (ConfigManagerProxyException cmpex) { String stx =
+			  "Error connecting: " + cmpex; System.out.println(stx);
+			  
+			  }
+			 
 		
 		//return "User ID :" + abc;
 		return "/main/display";
